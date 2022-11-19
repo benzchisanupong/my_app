@@ -10,65 +10,90 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  String homeButton = '5';
-
-  void onTapped() {
-    setState(() {
-      homeButton = 'home';
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          color: ColorSelect.background,
-          child: GestureDetector(onTap: () {
-            changetext();
-          }),
-        ),
-        bottomNavigationBar: myNavigationBar(context));
-  }
-
-  Widget myNavigationBar(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 60,
-      color: ColorSelect.secondary,
-      child: Row(children: [
-        Expanded(
-            flex: 2,
-            child: GestureDetector(
-              onTap: () {
-                changetext();
-              },
-              child: Stack(
+    return Column(
+      children: [
+        Stack(
+          children: [
+            Container(
+              padding: EdgeInsets.all(24),
+              height: 200,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(
+                        'images/line.png',
+                      ),
+                      fit: BoxFit.cover),
+                  color: ColorSelect.primary,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(28),
+                      bottomRight: Radius.circular(28))),
+              child: Row(
                 children: [
-                  Container(
-                    child: Center(
-                      child: Icon(
-                        Icons.home,
-                        color: ColorSelect.primary,
-                        size: 24.0,
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(top: 20),
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            "Hey Marimar !",
+                            style: TextStyle(color: ColorSelect.secondary),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(top: 16),
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            "Let's find your best project!",
+                            style: TextStyle(
+                                color: ColorSelect.secondary,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    flex: 5,
+                  ),
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.centerRight,
+                      child: CircleAvatar(
+                        radius: 32,
+                        backgroundColor: Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.all(1), // Border radius
+                          child: ClipOval(
+                              child: Image.asset('images/neekolabs_black.png')),
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                      alignment: Alignment.bottomCenter,
-                      child: Text(
-                        homeButton,
-                        style: TextStyle(fontSize: 20),
-                      ))
+                    flex: 5,
+                  )
                 ],
               ),
-            )),
-      ]),
+            ),
+            Column(
+              children: [
+                SizedBox(
+                  height: 150,
+                ),
+                Container(
+                  margin: EdgeInsets.all(24),
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      color: ColorSelect.secondary,
+                      borderRadius: BorderRadius.all(Radius.circular(12))),
+                )
+              ],
+            )
+          ],
+        ),
+      ],
     );
   }
 }

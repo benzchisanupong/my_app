@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/ui/home.dart';
+import 'package:my_app/ui/navigation.dart';
 import 'package:my_app/value.dart';
 
 class Welcome extends StatelessWidget {
@@ -90,7 +90,7 @@ class Welcome extends StatelessWidget {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const Home()),
+                                      builder: (context) => const Navigation()),
                                 );
                               },
                               style: ElevatedButton.styleFrom(
