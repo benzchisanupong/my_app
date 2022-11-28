@@ -64,6 +64,7 @@ flutter:
   assets:
     - images/neekolabs.png
     - images/neekolabs_black.png
+    - images/pmii.jpg
     - images/line.png
   #   - images/a_dot_ham.jpeg
 
